@@ -8,3 +8,50 @@ Este template corresponde ao exemplo da Fig. 2.3 do livro. O exercício consiste
 Tarefa individual.
 
 Incluir um Readme descritivo do sistema implementado.
+
+
+_________________________________________________________________________________________________________________________________-
+
+# Aplicação Cliente-Servidor de Informações Meteorológicas
+
+Esta é uma aplicação simples cliente-servidor que permite obter previsão do tempo, clima atual e hora atual utilizando sockets. O servidor recebe solicitações do cliente e se comunica com APIs externas de clima e tempo para obter os dados solicitados.
+
+## Pré-requisitos
+
+- Python 3.x
+
+## Primeiros Passos
+
+1. Clone o repositório ou faça o download dos arquivos do código-fonte.
+
+2. Instale as dependências necessárias executando o seguinte comando:
+
+pip install requests
+
+
+3. Inicie o servidor:
+- Abra um terminal ou prompt de comando.
+- Navegue até o diretório do projeto.
+- Execute o seguinte comando:
+  ```
+  python server.py
+  ```
+
+4. Faça solicitações a partir do cliente:
+- Abra outro terminal ou prompt de comando.
+- Navegue até o diretório do projeto.
+- Modifique o dicionário `request_payload` no arquivo `client.py` para especificar os parâmetros desejados:
+  - `"days"`: Número de dias para a previsão do tempo (por exemplo, 2).
+  - `"location"`: Cidade ou localização para obter informações meteorológicas (por exemplo, "Goiânia").
+  - `"action"`: Tipo de informação a ser recuperada (por exemplo, "weather" para tempo, "forecast" para previsão, "time" para hora atual).
+- Execute o seguinte comando para enviar a solicitação para o servidor:
+  ```
+  python client.py
+  ```
+
+## Credenciais da API
+
+As credenciais de uso da API foram obtidas gratuitamente, porém, há um limite de 1000 requests.
+## Reconhecimentos
+
+- As informações meteorológicas e de tempo são obtidas usando a API M3O (https://m3o.com/).
