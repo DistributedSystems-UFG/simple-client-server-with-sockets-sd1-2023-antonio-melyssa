@@ -12,7 +12,7 @@ s.connect((HOST, PORT))
 request_payload = {
     "days": 2,
     "location": "Goiania",
-    "action": "weather"   # forecast / time / now
+    "action": "time"   # forecast / time / now
 }
 request_data = json.dumps(request_payload)
 

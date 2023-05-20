@@ -32,7 +32,7 @@ def getTime():
 
 
 def getWeatherForecast(data):
-    request_data = bytes.decode(data).strip()
+    request_data = data
 
     # Call the API
     headers = {
@@ -59,7 +59,7 @@ def getWeatherForecast(data):
 
 
 def getWeatherNow(data):
-    request_data = bytes.decode(data).strip()
+    request_data = data
 
     # Call the API
     headers = {
@@ -97,14 +97,22 @@ while True:
     if not data:
         break
 
-    #response = getWeatherForecast(data)
-    #response = getTime()
-    response = getWeatherNow(data)
+    request_data = bytes.decode(data).strip()
+    request_payload = json.loads(request_data)
+    action = request_payload.get('action', '')
+    request_payload.pop('action', None)
+    data = json.dumps(request_payload)
+
+    if action == 'forecast':
+        response = getWeatherForecast(data)
+    elif action == 'time':
+        response = getTime()
+    elif action == 'now':
+        response = getWeatherNow(data)
+
     conn.send(str.encode(response))
 
 
 conn.close()
 # close the connection
 
-
-#
