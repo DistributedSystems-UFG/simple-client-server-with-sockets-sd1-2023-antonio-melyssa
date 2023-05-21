@@ -43,7 +43,7 @@ pip install requests
 - Modifique o dicionário `request_payload` no arquivo `client.py` para especificar os parâmetros desejados:
   - `"days"`: Número de dias para a previsão do tempo (por exemplo, 2).
   - `"location"`: Cidade ou localização para obter informações meteorológicas (por exemplo, "Goiânia").
-  - `"action"`: Tipo de informação a ser recuperada (por exemplo, "weather" para tempo, "forecast" para previsão, "time" para hora atual).
+  - `"action"`: Tipo de informação a ser recuperada (por exemplo, "time" para clima atual, "forecast" para previsão do tempo, "time" para hora atual).
 - Execute o seguinte comando para enviar a solicitação para o servidor:
   ```
   python client.py
